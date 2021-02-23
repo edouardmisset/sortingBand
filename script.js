@@ -19,6 +19,9 @@ const bands = [
 ];
 
 const list = document.querySelector('ul');
+const excludeList = ['the ', 'a ', 'an '];
+
+const regex = new RegExp(`^(${excludeList.join('|')})`, 'i');
 
 //----------------
 // Event Listeners
@@ -28,12 +31,10 @@ const list = document.querySelector('ul');
 // Functions
 //----------
 
-const sortedBands = [...bands].sort();
+const sortedBands = [...bands].sort((a, b) => (strip(a) < strip(b) ? -1 : 1));
 
-list.innerHTML = sortedBands
-  .map((band) => {
-    return `
-        <li>${band}</li>
-      `;
-  })
-  .join('');
+function strip(band) {
+  return band.replace(regex, '');
+}
+
+list.innerHTML = sortedBands.map((band) => `<li>${band}</li>`).join('');
