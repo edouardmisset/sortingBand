@@ -104,7 +104,7 @@ body {
 }
 
 #bands {
-  list-style: inside square;
+  list-style: none;
   font-size: 20px;
   background: white;
   width: 500px;
