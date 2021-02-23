@@ -1,2 +1,2 @@
-# simpleTemplate
-A simple HTML CSS JS template
+# sortingBand
+Sorting items without their articles
